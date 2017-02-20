@@ -3,6 +3,7 @@
 *.lo
 *.o
 *.obj
+*.cbp
 
 # Precompiled Headers
 *.gch
@@ -32,6 +33,8 @@
 *CMakeFiles*
 *.cmake
 *Makefile*
+*Cache.txt
 
 infos/
 klausuren/
+*.idea*

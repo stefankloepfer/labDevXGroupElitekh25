@@ -3,6 +3,6 @@ message(STATUS "HELLO")
 set(MODULE_NAME "SW1")
 
 file(GLOB SRC *.cpp)
-set(MAIN main.cpp)
+set(MAIN main.cpp mm_standard_usages.h runnable.h device.h)
 
-add_executable(depp ${MAIN} ${SRC})
+add_executable(depp ${MAIN} ${SRC} mm_standard_usages.h)
