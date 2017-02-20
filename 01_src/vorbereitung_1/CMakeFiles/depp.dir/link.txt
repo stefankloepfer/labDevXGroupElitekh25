@@ -1,0 +1,1 @@
+/usr/bin/c++   -g   CMakeFiles/depp.dir/main.cpp.o  -o 07_exec/depp -rdynamic 

@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-add_subdirectory("vorbereitung_1")
-=======
 cmake_minimum_required(VERSION 2.8)
 message(STATUS "HELLO")
 set(MODULE_NAME "SW1")
@@ -9,4 +6,3 @@ file(GLOB SRC *.cpp)
 set(MAIN main.cpp mm_standard_usages.h runnable.h device.h)
 
 add_executable(depp ${MAIN} ${SRC} mm_standard_usages.h)
->>>>>>> 58239dd438d3338f1e4a16b098e9a726077e2a5b
