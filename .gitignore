@@ -39,3 +39,4 @@ infos/
 klausuren/
 *.idea*
 *cmake*
+*.orig
