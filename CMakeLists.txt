@@ -1,9 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 project(labor_swe_2)
 
-#message(${CMAKE_CURRENT_BINARY_DIR})
-#message(${CMAKE_CURRENT_SOURCE_DIR})
-#message(${CMAKE_CURRENT_LIST_DIR})
 set(SOURCES ${CMAKE_CURRENT_SOURCE_DIR}"/01_src")
 message(${SOURCES})
 set(CMAKE_BUILD_TYPE "Debug")
