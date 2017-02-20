@@ -25,17 +25,18 @@ int main (int argc, char *argv[]) {
     {
         if (pid == 0) {
             for ( int i = 0; i < 3; ++i ) {
-
-
                 std::cout << "Adresse von context-Kind\t" << &context << std::endl;
                 std::cout << "Wert von context-Kind\t" << context << std::endl;
                 ++context;
             }
 //ab hier läuft erster Kind-Prozess
-        } else if (pid == -1) {
+
+        } else if (pid == -1)
+        {
             std::cout << "Fehler in der Matrix" << std::endl;
 //ab hier läuft zweiter KindProzess
-        } else {
+        } else
+        {
             for ( int i = 0; i < 3; ++i ) {
 
                 std::cout << "Adresse von context-Vater\t" << &context << std::endl;
