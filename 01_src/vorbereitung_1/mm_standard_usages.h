@@ -8,12 +8,13 @@
 
 #include <cmath>
 
-typedef signed char    Int8;
-typedef unsigned char  UInt8;
-typedef signed short   Int16;
-typedef unsigned short UInt16;
-typedef signed int     Int32;
-typedef unsigned int   UInt32;
+typedef signed char    i8;
+typedef unsigned char  u8;
+typedef signed short   i16;
+typedef unsigned short u16;
+typedef signed int     i32;
+typedef unsigned int   u32;
+
 typedef double         f64;
 typedef float          f32;
 
