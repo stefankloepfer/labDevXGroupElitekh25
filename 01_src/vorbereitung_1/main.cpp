@@ -1,5 +1,6 @@
 #include <iostream>
 #include <unistd.h>
+#include "fork_config.h"
 
 /*!
  *
@@ -34,6 +35,7 @@ int main (int argc, char *argv[]) {
         } else if (pid == -1)
         {
             std::cout << "Fehler in der Matrix" << std::endl;
+          break;
 //ab hier läuft zweiter KindProzess
         } else
         {
@@ -51,4 +53,31 @@ int main (int argc, char *argv[]) {
     return 0;
 }
 
+/*
 
+#include <windows.h>
+
+int main(int argc, char *argv[])
+{
+
+    STARTUPINFO si;
+    PROCESS_INFORMATION pi;
+
+    ZeroMemory( &si, sizeof(si) );
+    si.cb = sizeof(si);
+    ZeroMemory( &pi, sizeof(pi) );
+
+    CreateProcess( NULL,   // No module name (use command line)
+                   "cmd.exe /c c:\\start.bat",        // Command line
+                   NULL,           // Process handle not inheritable
+                   NULL,           // Thread handle not inheritable
+                   FALSE,          // Set handle inheritance to FALSE
+                   0,              // No creation flags
+                   NULL,           // Use parent's environment block
+                   NULL,           // Use parent's starting directory
+                   &si,            // Pointer to STARTUPINFO structure
+                   &pi );           // Pointer to PROCESS_INFORMATION structure
+
+    return 0;
+}
+*/

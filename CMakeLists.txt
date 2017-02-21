@@ -15,8 +15,13 @@ file(MAKE_DIRECTORY 07_exec)
 
 set(INCLUDE_DIRECTORIES "02_include")
 set(LIBRARY_OUTPUT_DIRECTORY "03_libs")
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "03_libs")
 set(CMAKE_INSTALL_PREFIX "04_build")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "07_exec")
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "03_libs")
+# should we use our own math functions?
+option (USE_MYMATH "Use tutorial provided math implementation" ON)
+# add the install targets
+install (TARGETS fork_ DESTINATION 07_exec)
+install (FILES "${PROJECT_BINARY_DIR}/TutorialConfig.h" DESTINATION 02_include)
 
 add_subdirectory("01_src")
