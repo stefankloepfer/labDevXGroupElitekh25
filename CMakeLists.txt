@@ -21,7 +21,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "07_exec")
 # should we use our own math functions?
 option (USE_MYMATH "Use tutorial provided math implementation" ON)
 # add the install targets
-install (TARGETS fork_ DESTINATION 07_exec)
-install (FILES "${PROJECT_BINARY_DIR}/TutorialConfig.h" DESTINATION 02_include)
+#install (TARGETS fork_ DESTINATION 07_exec)
+#install (FILES "${PROJECT_BINARY_DIR}/TutorialConfig.h" DESTINATION 02_include)
 
 add_subdirectory("01_src")

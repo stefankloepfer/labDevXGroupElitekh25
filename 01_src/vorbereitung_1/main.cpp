@@ -1,11 +1,9 @@
 /*!
- *
- * @param argc
- * @param argv
- * @return
+ * @author Mirko
  * @brief 1. Erzeugen Sie 2 Prozesse durch Fork. Jeder Prozess soll eine eigene main_x() bekommen,
- die nach dem Fork() aufgerufen wird. Lassen Sie jeden Prozess in einer großen Schleife
- jeweils einen unterschiedlichen Text per printf oder cout ausgeben.
+ * die nach dem Fork() aufgerufen wird. Lassen Sie jeden Prozess in einer großen Schleife
+ * jeweils einen unterschiedlichen Text per printf oder cout ausgeben
+ *
  * @details Prozesse können mit einer Posix-Funktion fork() erzeugt werden. Dabei wird von dem gerade laufenden
  * Vaterprozess eine vollständige Kopie erstellt, die an der gleichen Stelle wie der Vater weiterläuft.
  *
@@ -17,7 +15,12 @@
  * Durch eine Abfrage kann der laufende Prozess ermitteln, ob er der Vater oder der Sohn-Prozess ist um
  * dann entsprechend zu verzweigen. Spannend an unten stehendem Programm ist, dass nicht vorhersagbar ist,
  * wer zuerst seine Ausgabe gibt, der Vater- oder ein Sohn-Prozess, es wird von Mal zu Mal unterschiedlich sein.
- *
+ * Beide Prozesse haben komplett getrennte Speiherbereiche. Obwohl die Adresse von "context" gleich ist, so ist dies
+ * nur im Virtual Memory der Fall. Die LookupMemoryTable hat eigene werte für beide Adressen.
+ * Adresse von context-Vater	0x7ffc9664f440
+ * Wert von context-Vater:	14
+ * Adresse von context-Kind	0x7ffc9664f440
+ * Wert von context-Kind	12
  * Clone the calling process, creating an exact copy.
  * Return -1 for errors, 0 to the new process,
  * and the process ID of the new process to the old process.
@@ -25,7 +28,7 @@
 #include <iostream>
 #include <unistd.h>
 #include "mm_standard_usages.h"
-//#include "fork_config.h"
+#include "fork_config.h"
 
 int main (int argc, char *argv[]) {
     pid_t pid     = fork ();
