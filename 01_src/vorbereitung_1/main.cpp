@@ -1,5 +1,6 @@
 /*!
- * @author Mirko
+ * @author Mirko Matosin
+ * @date 22.2.2017
  * @brief 1. Erzeugen Sie 2 Prozesse durch Fork. Jeder Prozess soll eine eigene main_x() bekommen,
  * die nach dem Fork() aufgerufen wird. Lassen Sie jeden Prozess in einer großen Schleife
  * jeweils einen unterschiedlichen Text per printf oder cout ausgeben
