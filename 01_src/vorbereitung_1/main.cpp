@@ -29,41 +29,55 @@
 #include <iostream>
 #include <unistd.h>
 #include "mm_standard_usages.h"
-#include "fork_config.h"
+#include "boost/thread"
 
-int main (int argc, char *argv[]) {
-    pid_t pid     = fork ();
-    i32 context = 0; // prüfvariable initialisieren
-    do /*!< ab in die Schleife um dauerhauft sachen auszgeben */
-    {
-        if (pid == 0) {
-            for ( i8 i = 0; i < 3; ++i ) {
-                std::cout << "Adresse von context-Kind\t" << &context << std::endl;
-                std::cout << "Wert von context-Kind\t" << context << std::endl;
-                ++context;
-            }
+void printstuff ();
+
+int main(int argc, char *argv[]) {
+  pid_t pid = fork();
+  i32 context = 0; // prüfvariable initialisieren
+
+  do /*!< ab in die Schleife um dauerhauft sachen auszgeben */
+  {
+    if (pid == 0) {
+      for (i8 i = 0; i < 3; ++i) {
+        std::cout << "Adresse von context-Kind\t" << &context << std::endl;
+        std::cout << "Wert von context-Kind\t" << context << std::endl;
+        ++context;
+      }
 //ab hier läuft erster Kind-Prozess
 
-        } else if (pid == -1)
-        {
-            std::cout << "Fehler in der Matrix" << std::endl;
-          break;
+    } else if (pid == -1) {
+      std::cout << "Fehler in der Matrix" << std::endl;
+      break;
 //ab hier läuft zweiter KindProzess
-        } else
-        {
-            for ( i8 i = 0; i < 3; ++i ) {
+    } else {
+      for (i8 i = 0; i < 3; ++i) {
 
-                std::cout << "Adresse von context-Vater\t" << &context << std::endl;
-                std::cout << "Wert von context-Vater:\t" << context << std::endl;
-                ++context;
-            }
+        std::cout << "Adresse von context-Vater\t" << &context << std::endl;
+        std::cout << "Wert von context-Vater:\t" << context << std::endl;
+        ++context;
+      }
 //ab hier läuft Vaterprozess weiter
-        }
-        sleep (1);
-    } while (true);
+    }
+    sleep(1);
+  } while (true);
 
-    return 0;
+  return 0;
 }
+
+void print
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 

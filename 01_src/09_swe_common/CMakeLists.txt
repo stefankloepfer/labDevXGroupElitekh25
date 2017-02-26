@@ -4,3 +4,8 @@ set(MODULE_NAME "swe_common")
 set ("${MODULE_NAME}+_VERSION_MAJOR" 1)
 set (Vorbereitung_VERSION_MINOR 0)
 set (Vorbereitung_VERSION_PATCH 1)
+file (GLOB HEADERS ./*.h )
+
+foreach(h HEADERS)
+  set(COMMAND ln -sf h ${INCLUDES_PATH})
+endforeach()

@@ -1,27 +1,24 @@
 cmake_minimum_required(VERSION 2.8)
 project(labor_swe_2)
 
-#message(${CMAKE_CURRENT_BINARY_DIR})
-#message(${CMAKE_CURRENT_SOURCE_DIR})
-#message(${CMAKE_CURRENT_LIST_DIR})
-set(SOURCES ${CMAKE_CURRENT_SOURCE_DIR}"/01_src")
-message(${SOURCES})
 set(CMAKE_BUILD_TYPE "Debug")
 
 file(MAKE_DIRECTORY 02_include)
 file(MAKE_DIRECTORY 03_libs)
-file(MAKE_DIRECTORY 04_build)
+file( MAKE_DIRECTORY 10_build )
 file(MAKE_DIRECTORY 07_exec)
+file(MAKE_DIRECTORY 04_static)
 
 set(INCLUDE_DIRECTORIES "02_include")
 set(LIBRARY_OUTPUT_DIRECTORY "03_libs")
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "03_libs")
-set(CMAKE_INSTALL_PREFIX "04_build")
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "04_static")
+set( CMAKE_INSTALL_PREFIX "10_build" )
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "07_exec")
-# should we use our own math functions?
-option (USE_MYMATH "Use tutorial provided math implementation" ON)
-# add the install targets
-#install (TARGETS fork_ DESTINATION 07_exec)
-#install (FILES "${PROJECT_BINARY_DIR}/TutorialConfig.h" DESTINATION 02_include)
+include_directories(${INCLUDE_DIRECTORIES})
 
+# Include Boost as an imported target
+find_package(Boost REQUIRED)
+add_library(boost INTERFACE IMPORTED)
+set_property(TARGET boost PROPERTY
+    INTERFACE_INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR})
 add_subdirectory("01_src")

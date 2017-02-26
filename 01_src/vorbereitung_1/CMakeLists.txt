@@ -18,7 +18,5 @@ include_directories("${PROJECT_BINARY_DIR}")
 # add the executable
 file(GLOB SRC *.cpp)
 set(MAIN main.cpp mm_standard_usages.h runnable.h device.h fork_config.h)
-#add_library(fork_common )
-add_executable(fork_ ${MAIN} ${SRC} mm_standard_usages.h fork_config.h)
+add_executable(fork_ ${MAIN} ${SRC})
 set(CMAKE_EXECUTABLE_SUFFIX exe)
-#target_link_libraries (Tutorial MathFunctions)
